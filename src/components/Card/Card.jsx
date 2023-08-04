@@ -28,12 +28,13 @@ function CompactCard ({param, setExpanded}) {
     const Png = param.png; 
 
   return(
-    <div className='CompactCard '
+    <motion.div className='CompactCard '
     style={{
         background: param.color.backGround,
         boxShadow: param.color.boxShadow
     }}
     onClick={setExpanded}
+      layoutId='expandedCard'
     >
         <div className='radialBar'>
             < CircularProgressbar 
@@ -47,7 +48,7 @@ function CompactCard ({param, setExpanded}) {
            <span>${param.value}</span>
            <span>Last 24 hours</span>
         </div>
-    </div>
+    </motion.div>
   );
 };
 // ExpandedCard 
@@ -105,17 +106,20 @@ function ExpandedCard({param, setExpanded}){
         },
     };
     return (
-        <div className='ExpendedCard'
-        style={{background: param.color.backGround, boxShadow: param.color.boxShadow}}>
-          <div>
-          <UilTimes on={true.toString()} onClick={setExpanded}/>
+        <motion.div className='ExpendedCard'
+        style={{background: param.color.backGround, boxShadow: param.color.boxShadow}}
+        layoutId='expandableCard'
+        >
+          <div    style={{alignSefl: 'flex-end', cursor: 'pointer', color: 'white'}}>
+          <UilTimes on={true.toString()} onClick={setExpanded}
+          />
           </div>
           <span>{param.title}</span>
            <div className='chartContainer'>
               <Chart series={param.series} type='area' options={data.options}/>
            </div>
            <span>Last 24 hours</span>
-        </div>
+        </motion.div>
     );
 };
 export default Card;

@@ -25,7 +25,7 @@
   #ffe1b1 51.55%,
   #f3c6f1 93.85%
   );
-  height: 100vh;
+  /*height: 100vh;*/
   display: flex;
   justify-content: center;
   align-items: center;
@@ -39,4 +39,32 @@
   background-color: var(--glass);
   overflow: hidden;
   grid-template-columns: 11rem auto 20rem;
+  gap: 30px;
+}
+
+@media screen and (max-width: 1200px) {
+  .AppGlass{
+   grid-template-columns: 10% 50% auto;
+   overflow-y: scroll;
+  }
+}
+
+@media screen and (max-width: 768px){
+  .AppGlass{
+    grid-template-columns: 1fr;
+  }
+  .AppGlass::-webkit-scrollbar{
+    display: none;
+  }
+}
+
+
+
+@media only screen and (max-width: 600px) {
+  .Sidebar {
+    display: none !important;
+}
+.App {
+  width: 100%;
+}
 }
